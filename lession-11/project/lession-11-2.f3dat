@@ -1,0 +1,35 @@
+new
+gen zone brick size 6 8 8
+model mohr
+prop bulk 1e8 shear 0.3e8 fric 35
+prop coh 1e10 tens 1e10
+set grav 0 0 -9.81
+ini dens 1000
+fix x range x -0.1 0.1
+fix x range x 5.9 6.1
+fix y range y -0.1 0.1
+fix y range y 7.9 8.1
+fix z range z -0.1 0.1
+hist n 5
+hist unbal
+set mech force 50
+solve
+save beam-brace0.sav
+;
+prop coh 1e8 tens 1e3
+model null range x 2 4 y 2 6 z 5 10
+set large
+ini xdis 0 ydis 0 zdis 0
+sel beam id 1 begin 2 4 8 end 4 4 8 nseg 2
+sel beam id 1 prop emod 2.0e11 nu 0.30
+sel beam id 1 prop XCArea 6e-3 XCIz 200e-6 XCIy 200e-6 XCJ 0.0
+sel beam id 2 begin 2 5 8 end 4 5 8 nseg 2
+sel beam id 2 prop emod 2.0e11 nu 0.30
+sel beam id 2 prop XCArea 6e-3 XCIz 200e-6 XCIy 200e-6 XCJ 0.0
+sel beam id 3 begin 2 3 8 end 4 3 8 nseg 2
+sel beam id 3 prop emod 2.0e11 nu 0.30
+sel beam id 3 prop XCArea 6e-3 XCIz 200e-6 XCIy 200e-6 XCJ 0.0
+hist gp zdisp 4 4 8
+solve
+save beam-bracel.sav
+;
