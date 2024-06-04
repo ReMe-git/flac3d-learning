@@ -1,0 +1,7 @@
+new
+generate zone brick 
+generate zone dbrick p0 12 0 0
+generate zone wedge p0 24 0 0
+generate zone pyramid p0 0 12 0
+generate zone tetrahedron p0 12 12 0
+generate zone cylinder p0 24 12 0

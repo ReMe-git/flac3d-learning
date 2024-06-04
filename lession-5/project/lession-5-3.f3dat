@@ -1,0 +1,16 @@
+ new
+generate zone brick size 5 5 5 &
+p0 0 0 0 p1 10 0 0 p2 0 10 0 p3 0 0 5
+generate zone brick size 10 10 10 &
+p0 0 0 5 p1 10 0 5 p2 0 10 5 p3 0 0 10
+attach face range z 4.9 5.1
+model elastic
+property bulk 8e9 shear 5e9
+fix x range x -0.1 0.1
+fix x range x 9.9 10.1
+fix y range y -0.1 0.1
+fix y range y 9.9 10.1
+fix z range z -0.1 0.1
+apply szz -1e6 range z = 9.9 10.1 x 0 5 y 0 5
+history unbal
+solve

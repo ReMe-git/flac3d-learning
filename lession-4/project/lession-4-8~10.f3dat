@@ -1,0 +1,22 @@
+new
+;4-8
+generate zone radbrick group 4-8
+generate zone brick p0 -1 -21 -1.001 size 36 32 1 group board
+plot add axes
+;4-9
+generate zone radbrick &
+p0 12 -10 0 &
+p1 22 -10 0 &
+p2 12 0 0 &
+p3 12 -10 10 &
+dimension 3 6 4 &
+size 3 6 4 7 group 4-9
+;4-10
+generate zone radbrick &
+p0 24 -20 0 &
+p1 34 -20 0 &
+p2 24 -10 0 &
+p3 24 -20 10 &
+dimension 3 6 4 &
+size 6 12 8 7 group 4-10 &
+fill group inner

@@ -1,0 +1,15 @@
+new
+gen zon bri size 3 3 3
+model elas
+prop bulk 3e6 shear 1e6
+ini dens 2000
+fix z ran z -.1 .1
+fix x ran x -.1 .1
+fix x ran x -2.9 3.1
+fix y ran y -.1 .1
+fix y ran y 2.9 3.1
+set grav 0 0 -10
+solve 
+app nstr -10e4 ran z 3 x 1 2 y 1 2
+solve
+plo con zd

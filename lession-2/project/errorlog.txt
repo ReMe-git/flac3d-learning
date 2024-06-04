@@ -1,0 +1,7 @@
+flac3d 500-093
+Sun April 28 2024 at 23:59:9
+Module: Z:\home\reme\Volumes\volume1\Wine\Flac3d500\exe64\flac3d500_gui_64.exe
+GUI Version: 005-121
+Operating system: Microsoft  (build 9200), 64-bit.
+4 processor(s), type 8664.
+

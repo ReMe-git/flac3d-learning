@@ -1,0 +1,42 @@
+new
+gen zone cyl p0 0 0 0 p1 1 0 0 p2 0 4 0 p3 0 0 1 size 12 30 12
+gen zone reflect norm 1 0 0
+gen zone reflect norm 0 0 1
+model st
+pro den 2500 bulk 2e8 she 1e8 co 2e6 fric 45 ten 1e6 dil 10
+pro ftab 1 ctab 2 dtab 3
+table 1 0 45 0.05 42 0.1 40 1 40
+table 2 0 2e6 0.05 1e6 0.1 5e5 1 5e5
+table 3 0 10 0.05 3 0.1 0
+fix x y z range y -0.1 0.1
+fix x y z range y 3.9 4.1
+ini yvel 2.5e-5 range y -0.1 0.1
+ini yvel -2.5e-5 range y 3.9 4.1
+def ax_str
+ str = 0
+ pnt = gp_head
+ loop while pnt # null
+  if gp_ypos(pnt) < 0.1 then
+   str = str+gp_yfunbal(pnt)
+   endif
+  pnt = gp_next(pnt)
+ endloop
+ ax_str = str /pi
+end
+hist n 1
+hist gp ydisp 0 0 0
+;hist [ax_str]
+hist gp xdisp 1 1 0
+step 5000
+define ShowPlasticZones
+ zp = zone_head
+ loop while zp # null
+  if z_prop(zp, 'es_plastic') > 0.2
+   z_group(zp) = 'yield'
+  else
+   z_group(zp) = 'other'
+  endif
+  zp = z_next(zp)
+ endloop
+end
+[ShowPlasticZones]

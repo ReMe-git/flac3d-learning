@@ -1,0 +1,11 @@
+new
+config dyn
+generate zone brick size 1 1 1
+;set init position
+ini x mul 0.1 y m 0.1 z m 0.1
+;set model
+model elastic
+prop bulk 3e8 shear 1e8
+ini density 1000
+set gravity 0 0 -10
+solve age 2

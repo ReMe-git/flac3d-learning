@@ -1,0 +1,24 @@
+new
+generate zone radcylinder p0 15 0 0 p1 23 0 0 &
+p2 15 50 0 p3 15 0 8 &
+size 4 10 6 4 dim 4 4 4 4 &
+rat 1 1 1 1 fill group MainTun
+generate zone reflect dip 90 dd 90 origin 15 0 0
+generate zone reflect dip 0 origin 0 0 0
+generate zone radcylinder p0 0 0 -1 p1 7 0 0 &
+p2 0 50 -1 p3 0 0 8 p4 7 50 0 p5 0 50 8 &
+p6 7 0 8 p7 7 50 8 p8 3 0 -1 p10 3 50 -1 &
+size 3 10 6 4 dim 3 3 3 3 rat 1 1 1 1
+generate zone radcylinder p0 0 0 -1 p1 0 0 -8 &
+p2 0 50 -1 p3 7 0 0 p4 0 50 -8 p5 7 50 0 &
+p6 7 0 -8 p7 7 50 -8 p9 3 0 -1 p11 3 50 -1 &
+size 3 10 6 4 dim 3 3 3 3 rat 1 1 1 1
+sel shell range cylinder end1 0 0 -1 end2 0 50 -1 radius 3
+generate zone radtunnel size 9 10 3 10 &
+p0 0 0 0 p1 50 0 0 p2 0 50 0 p3 0 0 50 &
+dim 23 8 23 rat 1 1 1 1.1 &
+group outgird
+generate zone reflect normal 0 0 -1 origin 0 0 0 &
+range group outgird
+model null range group MainTun
+;group servic range cylinder end1 0 0 -1 end2 0 50 -1 radius 3

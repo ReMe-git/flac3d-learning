@@ -1,0 +1,40 @@
+new
+;4-1
+generate zone brick group 4-1
+plot add axes
+generate zone brick &
+p0 -1 -1 -1.1 &
+size 30 26 1 group board
+;4-2
+generate zone brick &
+p0 12 0 0 &
+p1 20 2 0 &
+p2 12 8 0 &
+p3 12 0 10 &
+size 8 8 10 group 4-2
+;4-3
+generate zone brick &
+p0 22 0 0 &
+edge 6 size 10 6 8 group 4-3
+;4-4
+generate zone brick &
+p0 0 12 0 &
+p1 10 12 0 &
+edge 6 size 10 6 6 ratio 2 1.5 1.1 group 4-4
+;4-5
+generate zone brick &
+p0 12 12 0 &
+p1 add 8 0 0 &
+p2 add 0 8 0 &
+p3 add 0 0 10 &
+size 8 8 10 group 4-5
+;4-6
+generate zone brick &
+p0 22 12 0 &
+p1 28 11 0 &
+p2 23 22 1 &
+p3 22 14 10 &
+p4 29 20 -0.5 &
+p5 24 25 8 &
+p6 29 15 10 &
+p7 28 22 14 size 8 8 10 group 4-6

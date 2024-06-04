@@ -1,0 +1,8 @@
+new 
+generate zone radbrick group 4-11-1
+generate zone radtunnel p0 12 0 0 group 4-11-2
+generate zone radcylinder p0 24 0 0 group 4-11-3
+generate zone cshell p0 0 12 0 group 4-11-4
+generate zone cylint p0 12 12 0 group 4-11-5
+generate zone tunint p0 24 12 0 group 4-11-6
+plot add axes

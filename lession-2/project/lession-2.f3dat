@@ -1,0 +1,46 @@
+;clear workplace
+new
+;generate a x=6,y=8,z=8 brick, size means n grids
+generate zone brick size 6,8,8
+;set mohr model
+model mohr
+;set value
+property bulk=1e8 shear=0.3e8 friction=35
+property cohesion=1e10 tension=1e10
+;set initial condition
+set gravity 0,0, -9.81
+init density=1000
+;set fixed faces
+;fix left face
+fix x range x -0.1,0.1
+;fix right face
+fix x range x 5.9,6.1
+;fix front face
+fix y range y -0.1,0.1
+;fix back face
+fix y range y 7.9,8.1
+;fix bottom face
+fix z range z -0.1,0.1
+;solve
+history nstep=5
+;watch unbalance
+history unbalance
+;watch dot(4,4,8) 's zdisplacement
+history gp zdisplacement 4,4,8
+;set max unbalance
+set mechanical force 50
+solve
+;show history
+plot history 1
+plot history 2
+save Trench.sav
+;reset values
+property cohesion=1e3 tension=1e3
+;set null model
+model null range x=2,4 y=2,6 z=5,10
+;set large
+set large
+;reset displacement
+initial xdisplacement=0, ydisplacement=0, zdisplacement=0
+;run 2000 steps
+step 2000

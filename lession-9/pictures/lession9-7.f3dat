@@ -1,0 +1,7 @@
+new
+gen zone brick size 6 6 6 p1 6 0 -1
+model elas
+prop bulk 8e9 shear 5e9
+apply sxx -2e6 range x -0.1 0.1
+apply sxx -2e6 range x 5.9 6.1
+step 500
